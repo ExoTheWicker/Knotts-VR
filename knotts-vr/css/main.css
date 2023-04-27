@@ -1,0 +1,65 @@
+/* Don't judge my CSS it IS NOT my passion */
+
+body{
+    background-color: rgb(36, 36, 36);
+    color: white;
+}
+.site-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+.friends-section{
+        width: 10%;
+        border: 1px solid red;
+        float: left; /* add this */
+        overflow: scroll;
+        padding: 10px;
+        float: right;
+        height: 50%;
+    }
+
+  .friend-Offline{
+    padding: 3px;
+    border: 1px solid;
+    border-color: gray;
+    height: auto;
+    width: auto;
+
+  }
+  .friend-Away{
+    border: 1px solid;
+    border-color: orange;
+    height: auto;
+    width: auto;
+
+  }
+  .friend-Busy{
+    border: 1px solid;
+    border-color: red;
+    height: auto;
+    width: auto;
+
+  }
+  .friend-Online{
+    border: 1px solid;
+    border-color: lime;
+    height: auto;
+    width: auto;
+
+  }
+
+  span.Offline{
+    color: gray;
+}
+span.friend-Away{
+  color: orange
+}
+span.busy{
+  color: red;
+}
+span.Online{
+    color: lime;
+}
