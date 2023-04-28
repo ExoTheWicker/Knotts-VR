@@ -2,9 +2,6 @@
     $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $uri_segments = explode('/', $uri_path);
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
 
     
 //Load config file
@@ -22,7 +19,14 @@ $config = json_decode(file_get_contents('config/config.json'));
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_Token'], 'title')?> | Knotts-VR</title>
+        <title>
+        <?php
+            if(session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_token'], 'title') != 'false'){
+        
+        
+        echo session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_token'], 'title');}else{
+            echo 'Session Browser';
+        }?> | Knotts-VR</title>
         <link rel="stylesheet" href="https://dev.knotts-vr.gay/css/main.css">
     </head>
     <body>
@@ -37,7 +41,13 @@ $config = json_decode(file_get_contents('config/config.json'));
                 <?php echo friends($_COOKIE['Neos_userId'], $_COOKIE['Neos_token'])?>
             </div>
             <div class="site-content">
-                <?php echo session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_token'], 'all')?>
+                <?php 
+                    if(session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_token'], 'title') != 'false'){
+                echo session($uri_segments[2], $_COOKIE['Neos_userId'], $_COOKIE['Neos_token'], 'all');
+            }else{
+                echo'Error: Session Exired, Hidden, Not Public or Not found';
+            }
+                ?>
             </div>
             <div class="site-footer">
                <?php include('inc/footer.php')?>
