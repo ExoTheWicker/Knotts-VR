@@ -13,16 +13,21 @@ body{
     text-align: center;
   }
   .user-profile-section{
-    max-width: 300px;
+    max-width: 400px;
+  }
+  .site-main{
+    display: flex;
   }
 .friends-section{
         width: 250px;
         border: 2px  solid rgb(0, 204, 255);
         border-radius: 4px;
-      float: right;
+        position: absolute;
+        right: 0px;
         overflow-y: scroll;
         padding: 10px;
-        height: 550px;
+        height: 75% ;
+        margin-right: 8px;
     }
 
   .friend-Offline{
@@ -32,7 +37,8 @@ body{
     border-color: gray;
     height: auto;
     width: auto;
-    margin: 7px;
+    margin: 10px;
+    padding: 15px;
 
   }
   .friend-Away{

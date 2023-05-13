@@ -37,14 +37,15 @@
             <div class="site-header">
                 <?php include('inc/header.php');?>
             </div>
-
-                <div class="user-profile-section">
-                    <h1>Welcome, <?php echo $user->username?></h1>
-                    <p><img src="https://assets.neos.com/assets/<?php $asset_parts = pathinfo($user->profile->iconUrl); echo $asset_parts['filename']?>" style="width: 128px; height: 128px"></p>
-                    <span class="user-tags"><?php echo tags($_COOKIE['Neos_userId'])?></span>
-                </div>
-                <div class="friends-section">
-                    <?php echo friends($_COOKIE['Neos_userId'], $_COOKIE['Neos_token'])?>
+                <div class="site-main">
+                    <div class="user-profile-section">
+                        <h1>Welcome, <?php echo $user->username?></h1>
+                        <p><img src="https://assets.neos.com/assets/<?php $asset_parts = pathinfo($user->profile->iconUrl); echo $asset_parts['filename']?>" style="width: 128px; height: 128px"></p>
+                        <span class="user-tags"><?php echo tags($_COOKIE['Neos_userId'])?></span>
+                    </div>
+                    <div class="friends-section">
+                        <?php echo friends($_COOKIE['Neos_userId'], $_COOKIE['Neos_token'])?>
+                    </div>
                 </div>
             <div class="site-footer">
                 <?php include('inc/footer.php');?>

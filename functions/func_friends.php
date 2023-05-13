@@ -22,8 +22,16 @@ function friends($userid, $token){
     curl_close($curl);
     foreach($friends as $friend){
         if($friend->friendStatus == 'Accepted'){
-           echo '<div class="friend-'.$friend->userStatus->onlineStatus.'">
-            '.$friend->friendUsername . '<br>      
+           echo '<div class="friend-'.$friend->userStatus->onlineStatus.'">';
+
+           if(isset($friend->profile->iconUrl)){
+            $asset_parts = pathinfo($friend->profile->iconUrl);
+           echo'<div class="friend-profile-image" style="width:48px; height:48px; content:url('.'https://assets.neos.com/assets/'.$asset_parts['filename'].''.'); float: left"></div>';
+           }else{
+            echo '<div class="friend-profile-image" style="width:48px; height:48px; content:url('.'img/no-image.jpg','); float: left"></div>';
+           }
+           
+           echo '<span style="overflow: hidden">'.$friend->friendUsername . '</span><br>
             <span class="'.$friend->userStatus->onlineStatus.'">'.$friend->userStatus->onlineStatus.'</span><br>';
             if(isset($friend->userStatus->currentSession)){
                 echo 'In: <a href="/session/'.$friend->userStatus->currentSession->sessionId.'">'.$friend->userStatus->currentSession->name.'</a>';

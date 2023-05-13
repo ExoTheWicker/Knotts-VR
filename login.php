@@ -11,7 +11,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, [
-    CURLOPT_URL => "https://www.neosvr-api.com/api/userSessions",
+    CURLOPT_URL => $config->activeAPI.'/userSessions',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -63,7 +63,7 @@
                         <h1>Login to Neos</h1>
                         <p>We only transpher login data to the Neos API none of your neos data is stored locally.</p>
                     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-                        <p><span class="login-error" style="color: red"><?php echo $login_error;?></span></p>
+                        <p><span class="login-error" style="color: red"><?php echo $err?></span></p>
                         <input type="text" name="username" id="username" placeholder="Username"><br>
                         <input type="password" name="password" id="password" placeholder="Password"><br>
                         <input type="submit" value="Login">
